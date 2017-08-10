@@ -1,0 +1,25 @@
+<div class="small panel panel-default">
+    <div class="panel-body">
+        <div class="w3-row">
+            <div class="w3-col s6 m3 l3">
+                <div>{{parseDate(cityForecast.dt ) | date:'mediumDate'}}</div>
+            </div>
+            <div class="w3-col s6 m3 l3 ">
+                <img class="imageGreyscale" ng-src="{{weatherIcon(cityForecast.weather[0].icon)}}" alt=""/>
+            </div>
+        </div>
+
+        <div class="w3-row">
+            {{cityForecast.temp.day | number:1}}&#176;C {{cityForecast.weather[0].main}}
+        </div>
+
+        <div class="w3-row">
+            <div>
+                <div class="w3-col s12 m6 l4"><i class="fa fa-sun-o"></i> {{cityForecast.temp.day | number:1}}</div>
+
+                <div class="w3-col s12 m6 l4"><i class="fa fa-moon-o"></i> {{cityForecast.temp.night | number:1}}</div>
+
+            </div>
+        </div>
+    </div>
+</div>

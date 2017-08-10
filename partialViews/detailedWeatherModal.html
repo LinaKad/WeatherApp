@@ -1,0 +1,41 @@
+<div class="modal-header">
+    Forecast details for - {{city.name | placeholder:'?'}}, {{city.country | isoCountry}}
+    on - {{parseDate(details.dt ) | date:'fullDate'}}
+    <p class="small" style="color: grey" ng-show="city.coord.lon!=0 && city.coord.lat!=0"><i class="fa fa-compass"></i>
+        City coordinates : Lon: {{city.coord.lon}}, Lat: {{city.coord.lat}}</p>
+
+</div>
+
+<div class="modal-body">
+
+    <div class="w3-row">
+        <div class="w3-col s12 m4 l4 lead">
+            <img ng-src="{{weatherIcon(details.weather[0].icon)}}" alt=""/>
+            <p>{{details.temp.day | number:1}}&#176;C {{details.weather[0].main}}</p>
+        </div>
+
+        <div class="w3-col s12 m6 l6">
+            <p>Description - {{details.weather[0].description}}</p>
+            <p>Highest temperature : {{details.temp.max| number:1}}&#176;C</p>
+            <p>Lowest temperature :{{details.temp.min| number:1}}&#176;C </p>
+        </div>
+    </div>
+
+    <hr>
+    <div class="w3-row">
+        <div class="w3-col s12 m6  l6">
+            <p><i class="fa fa-sun-o"></i> Day: {{details.temp.day | number:1}}&#176;C</p>
+            <p><i class="fa fa-moon-o"></i> Night: {{details.temp.night | number:1}}&#176;C</p>
+        </div>
+        <div class="w3-col s12 m6  l6">
+            <p><i class="fa fa-tachometer"></i> Pressure: {{details.pressure}} hPa</p>
+            <p><i class="fa fa-tint"></i> Humidity: {{details.humidity}} %&nbsp;</p>
+        </div>
+    </div>
+
+
+</div>
+
+<div class="modal-footer">
+    <button class="btn btn-default center-block" ng-click="cancel()"><i class="fa fa-close"></i>Close</button>
+</div>

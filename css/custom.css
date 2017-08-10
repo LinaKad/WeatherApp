@@ -1,0 +1,9 @@
+footer{
+    position: absolute;
+    bottom: 0;
+}
+.imageGreyscale {
+    -webkit-filter: grayscale(100%); /* Chrome, Safari, Opera */
+    filter: grayscale(100%);
+}
+

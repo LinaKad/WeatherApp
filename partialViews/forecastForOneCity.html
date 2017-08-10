@@ -1,0 +1,77 @@
+<!--main forecast display/with search-->
+<div class="container">
+    <fieldset>
+        <legend>Search for forecast:</legend>
+
+        <div class="w3-row">
+
+            <div class="w3-col s12 m6 l6" style="align-content: center">
+
+                <p>Search phrase - {{searchedCityName}}</p>
+
+            </div>
+            <div class="w3-col s12 m6 l6">
+                <div class="input-group">
+                    <input type="text" class="form-control" ng-model="searchString" id="cityForceastSearchInput"
+                           placeholder="Search for...">
+                    <span class="input-group-btn">
+                <button ng-click="getForecastByLocation(searchString)" type="button" class="btn btn-default"><i
+                        class="fa fa-search"></i> Search
+                </button>
+            </span>
+                </div>
+            </div>
+        </div>
+
+
+    </fieldset>
+
+
+    <div id="forecastForCity">
+
+        <div ng-show="forecast.city.name.length>0">
+
+
+            <div class="w3-row-padding">
+                <h3 class="w3-col s12 m12 l12">
+                    {{forecast.city.name | placeholder:'?'}}, {{forecast.city.country | isoCountry}}
+                    <small ng-show="forecast.city.coord.lon!=0 && forecast.city.coord.lat!=0"><i
+                            class="fa fa-compass"></i> City coordinates : Lon: {{forecast.city.coord.lon}}, Lat:
+                        {{forecast.city.coord.lat}}
+                    </small>
+                </h3>
+            </div>
+
+            <div class="w3-row-padding">
+                <div class="w3-col s12 m6 6">
+                    <div weather-panel="forecast" show-entry="forecast.list[0]"
+                         ng-click="open(forecast.list[0], forecast.city)"></div>
+                </div>
+                <div class="w3-col s12 m6 6">
+                    <div weather-panel="forecast" show-entry="forecast.list[1]"
+                         ng-click="open(forecast.list[1], forecast.city)"></div>
+                </div>
+            </div>
+
+            <div class="w3-row-padding">
+                <div class="w3-col s6 m3 l3">
+                    <div weather-further-days="forecast" show-entry="forecast.list[2]"
+                         ng-click="open(forecast.list[2], forecast.city)"></div>
+                </div>
+                <div class="w3-col s6 m3 l3">
+                    <div weather-further-days="forecast" show-entry="forecast.list[3]"
+                         ng-click="open(forecast.list[3], forecast.city)"></div>
+                </div>
+                <div class="w3-col s6 m3 l3">
+                    <div weather-further-days="forecast" show-entry="forecast.list[4]"
+                         ng-click="open(forecast.list[4], forecast.city)"></div>
+                </div>
+                <div class="w3-col s6 m3 l3">
+                    <div weather-further-days="forecast" show-entry="forecast.list[5]"
+                         ng-click="open(forecast.list[5], forecast.city)"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

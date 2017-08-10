@@ -1,0 +1,15 @@
+<div class="panel panel-default">
+    <div class="panel-heading">{{parseDate(cityForecast.dt ) | date:'fullDate'}}</div>
+    <div class="panel-body">
+        <div>
+            <div>
+                <img ng-src="{{weatherIcon(cityForecast.weather[0].icon)}}" alt=""/>
+                {{cityForecast.temp.day | number:1}}&#176;C {{cityForecast.weather[0].main}}
+            </div>
+            <div>
+                <div><i class="fa fa-sun-o"></i> Day: {{cityForecast.temp.day | number:1}}</div>
+                <div><i class="fa fa-moon-o"></i> Night: {{cityForecast.temp.night | number:1}}</div>
+            </div>
+        </div>
+    </div>
+</div>
